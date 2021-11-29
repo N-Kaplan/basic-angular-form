@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +7,7 @@ import { Component } from '@angular/core';
 
 })
 export class AppComponent {
-  // title = 'friend-book';
+  title = 'friend-book';
   languages = [
     {value: 'css', name: 'CSS'},
     {value: 'html', name: 'HTML'},
