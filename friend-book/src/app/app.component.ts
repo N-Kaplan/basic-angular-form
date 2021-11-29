@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Friend} from "./friend";
 
 @Component({
   selector: 'app-root',
@@ -14,4 +15,5 @@ export class AppComponent {
     {value: 'javascript', name: 'JavaScript'},
     {value: 'php', name: 'PHP'}
   ];
+  friendModel = new Friend('', '', '', '', '');
 }
