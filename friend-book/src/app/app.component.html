@@ -1,0 +1,22 @@
+
+<!--First name-->
+<!--Last name-->
+<!--Email-->
+<!--Phone number-->
+<!--Favourite language (html, css, js, php, ...), this will be a select with options-->
+
+<form>
+  <label for="firstName">First name: </label>
+  <input id="firstName" name="firstName" type="text"><br>
+  <label for="lastName">Last name: </label>
+  <input id="lastName" name="lastName" type="text"><br>
+  <label for="email">Email: </label>
+  <input id="email" name="email" type="text"><br>
+  <label for="phoneNr">Phone number: </label>
+  <input id="phoneNr" name="phoneNr" type="text"><br>
+  <label for="favLanguage">Favorite Language: </label>
+  <select id="favLanguage" name="favLanguage">
+    <option *ngFor="let language of languages" value="{{language.value}}">{{language.name}}</option>
+  </select><br>
+  <button id="submit">Submit</button>
+</form>
