@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const PORT = 6969;
+const PORT = 9000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}) );
@@ -22,6 +22,18 @@ let allFriends = [{fName: 'Coach', lName: 'Tim', email: 'tim.broos@becode.org', 
 
 app.get('/', function (request, response) {
     response.send('Hello from server');
+});
+
+//new get function to send the allFriends variable as a response
+app.get('/allFriends', function (request, response) {
+    response.send(allFriends);
+});
+
+//post function with path "addFriend" pushes the request body to the allFriends array.
+app.post('/addFriend', function (request, response) {
+    allFriends.push(request.body);
+    response.send(allFriends);
+    //console.log(allFriends);
 });
 
 app.post('/', function (request, response) {

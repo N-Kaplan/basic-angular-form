@@ -21,21 +21,9 @@ export class AppComponent {
   constructor(private addFriendService: AddFriendService) {
   }
 
-  ngOnInit() {
-    // this.observable.subscribe(
-    //   data => console.log(data),
-    //   error => console.log(error),
-    //   () => console.log('Subscription finished')
-    // )
-    // console.log('Initialization')
-  }
-  }
-
-
   public submit() {
     console.log(this.friendModel);
-    this.addFriendService.addFriend(this.friendModel) //returns "observable". in order to get this data: subscribe to it
-
+    return this.addFriendService.addFriend(this.friendModel).subscribe(data => "it worked", error => "it didn't work"); //returns "observable". in order to get this data: subscribe to it
   }
 
 }

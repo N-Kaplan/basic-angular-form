@@ -125,13 +125,14 @@ The main difficulty was accessing the ng commands after installing angular. Solu
     - The method we made returns something called an "observable". If you want, you can also work with promises, however in this case we used an observable and to get the data out of it, we need to subscribe to it.
     - The code to subscribe to an observable looks like this <code>observable.subscribe(data => it worked, error => it didn't work)</code>.
     - NOTE: More on observables and subscribing to them [here](https://aidankmcbride.medium.com/observables-and-subscriptions-in-angular-c0c703bb910d).
-- [ ] 16\. Everything is set up in order to send data to your local api.
+    - NOTE: Angular documentation regarding http requests [here](https://angular.io/guide/http).
+- [x] 16\. Everything is set up in order to send data to your local api.
     - First, in the server.js file in the server folder, change the port to whatever number you like that is not occupied. Port numbers 9000 - 9100 are always safe, just make sure no other application is running on those ports.
     - In the server folder in your terminal, run the command <code>node server</code>. You won't get any confirmation that the server is running, just a blank new line. Now navigate to <code>localhost:PORT</code>.
     - You should see "Hello from server". That is because the get function in the server file with the root "/" as it's path sent it as a response.
     - You'll find an array allFriends, this is where you'll push your new friend to. But first, let's take a look at your friends in the server.
-    - Add a new get function with path "allFriends" and send the allFriends variable as a response. <strong>If you make changes to your server, make sure it's not running and then run it again with the <code>node server</code> command.</strong>If you now navigate to <code>localhost:PORT/allFriends</code> you'll get to see all your friends.
-    - Remember the url that we left empty? It's time to configure a path to which we'll post our data. Start by changing the url to <code>'http://localhost:PORT/'</code>.
+    - Add a new get function with path "/allFriends" and send the allFriends variable as a response. <strong>If you make changes to your server, make sure it's not running and then run it again with the <code>node server</code> command.</strong>If you now navigate to <code>localhost:PORT/allFriends</code> you'll get to see all your friends.
+    - Remember the url that we left empty? It's time to configure a path to which we'll post our data. Start by changing the url to <code>'http://localhost:PORT/'</code>. (NOTE: because the post request's path is '/addFriend', the url is: <code>http://localhost:PORT/addFriend</code>)
     - Next, make a new post function with path "addFriend". In here, push the request body to the allFriends array.
     - If you now go to your form and add a friend, submit the form, you'll see in your server, localhost:PORT/allFriends, that the friend has been added to the list.
 - [ ] 17\. You've sent data, but now we also want to display the newly updated friend list on your page. To do this, we'll have to make a get request to the server.
