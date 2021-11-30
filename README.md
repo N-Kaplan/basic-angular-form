@@ -110,7 +110,7 @@ A POST request to add a friend to your friend list.
 ###Notes after day 1:
 The main difficulty was accessing the ng commands after installing angular. Solution: command ng alias ="[PATH TO ng.js]".
 ***
-- [ ] 14\. Let's submit the data to a server now, but before we can do that we need to be able to do something on submit and get access to http requests.
+- [x] 14\. Let's submit the data to a server now, but before we can do that we need to be able to do something on submit and get access to http requests.
     - If you add the ngSubmit property to your form, you can bind a function to it and use that function in your component class to trigger it on submit. This is how it looks like: <code>(ngSubmit)="yourFunction()"</code>.
     - In your component class, define the function and console log your friend model. Now when you submit you'll see the data appear in your console.
     - To add this friend to your friendlist server, we'll need to make a service for it. We'll use the cli for this and input the command <code>ng g s addFriend</code>. This means, a"ng"ular "g"enerate "s"ervice with name "addFriendService", when you generate a service you'll see that after the name you've given it will automatically add "Service" after it.
@@ -124,6 +124,7 @@ The main difficulty was accessing the ng commands after installing angular. Solu
     - Now we can use the service in the method that triggers when the form gets submitted. In the method, call the addFriend method of the addFriendService and pass the friend data to it.
     - The method we made returns something called an "observable". If you want, you can also work with promises, however in this case we used an observable and to get the data out of it, we need to subscribe to it.
     - The code to subscribe to an observable looks like this <code>observable.subscribe(data => it worked, error => it didn't work)</code>.
+    - NOTE: More on observables and subscribing to them [here](https://aidankmcbride.medium.com/observables-and-subscriptions-in-angular-c0c703bb910d).
 - [ ] 16\. Everything is set up in order to send data to your local api.
     - First, in the server.js file in the server folder, change the port to whatever number you like that is not occupied. Port numbers 9000 - 9100 are always safe, just make sure no other application is running on those ports.
     - In the server folder in your terminal, run the command <code>node server</code>. You won't get any confirmation that the server is running, just a blank new line. Now navigate to <code>localhost:PORT</code>.

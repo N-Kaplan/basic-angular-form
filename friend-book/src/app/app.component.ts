@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {Friend} from "./friend";
+import { Friend } from "./friend";
+import { AddFriendService} from "./add-friend.service";
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,24 @@ export class AppComponent {
   ];
   friendModel = new Friend('', '', '', '', '');
 
-  public submit() {
-    console.log(this.friendModel)
+  constructor(private addFriendService: AddFriendService) {
   }
+
+  ngOnInit() {
+    // this.observable.subscribe(
+    //   data => console.log(data),
+    //   error => console.log(error),
+    //   () => console.log('Subscription finished')
+    // )
+    // console.log('Initialization')
+  }
+  }
+
+
+  public submit() {
+    console.log(this.friendModel);
+    this.addFriendService.addFriend(this.friendModel) //returns "observable". in order to get this data: subscribe to it
+
+  }
+
 }
