@@ -107,7 +107,7 @@ A POST request to add a friend to your friend list.
     - Now that the form validation is set up, add the "novalidate" property to your form to prevent the automatic browser validation.
     - To see if your button is actually getting disabled, inspect your button HTML in the browser.
 
-###Notes after day 1:
+### Notes after day 1:
 
 The main difficulty was accessing the ng commands after installing angular. Solution: command ng alias ="[PATH TO ng.js]".
 ***
@@ -147,7 +147,7 @@ The main difficulty was accessing the ng commands after installing angular. Solu
     - To make something happen on pageload, in the class add <code>ngOnInit(): any { something happens }</code>. In here, call your fetch function like we did previously for the form submit.
     - We now have our friend list updated in the property allFriends of the component class.
     - To check if you have your friends data console log it.
-    - **NOTE** apparently console logging from the component doesn't work.
+    - **NOTE:** apparently console logging from the component doesn't work.
 - [x] 18\. Now we can display the friends in the template using the property allFriends.
     - To do this we'll use the ngFor loop, add the following code to a div: <code>*ngFor="let friend of allFriends"</code>.
     - In this div, if you enter {{ friend.email }} for example. You'll see that on your page you'll see all the emails of your friends displayed.

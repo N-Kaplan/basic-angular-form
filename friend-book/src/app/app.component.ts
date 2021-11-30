@@ -11,6 +11,7 @@ import {AddFriendService} from "./add-friend.service";
 })
 export class AppComponent implements OnInit{
   title = 'friend-book';
+  allFriendsUrl = 'http://localhost:9000/allFriends';
   languages = [
     {value: 'css', name: 'CSS'},
     {value: 'html', name: 'HTML'},
@@ -27,13 +28,12 @@ export class AppComponent implements OnInit{
   public submit() {
     //console.log(this.friendModel);
     this.addFriendService.addFriend(this.friendModel).subscribe(data => {
-      // console.log('hello');
-      this.displayFriends('http://localhost:9000/allFriends').then((value) => {
-        // console.log(value);
-        this.allFriends = value;
+      //.then catches the promise returned by displayFriends in the friendsList variable.
+      this.displayFriends(this.allFriendsUrl).then((friendsList) => {
+        this.allFriends = friendsList;
       });
 
-    }, error => "it didn't work"); //returns "observable". in order to get this data: subscribe to it
+    }, error => "it didn't work"); //addFriend returns "observable". in order to get this data: subscribe to it
   }
 
   //request headers: see https://javascript.info/fetch#request-headers
@@ -49,8 +49,9 @@ export class AppComponent implements OnInit{
 
   //call the fetch function on pageload
   ngOnInit(): any {
-    console.log('hello');
-    this.displayFriends('http://localhost:9000/allFriends');
+    this.displayFriends(this.allFriendsUrl).then((friendsList) => {
+      this.allFriends = friendsList;
+    });
   };
 
 }
