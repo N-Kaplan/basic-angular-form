@@ -16,4 +16,8 @@ export class AppComponent {
     {value: 'php', name: 'PHP'}
   ];
   friendModel = new Friend('', '', '', '', '');
+
+  public submit() {
+    console.log(this.friendModel)
+  }
 }

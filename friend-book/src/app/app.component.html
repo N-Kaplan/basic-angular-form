@@ -8,7 +8,7 @@
 <body>
   {{ friendModel | json }}
 <!--todo: add error messages for invalid input (step 12)-->
-  <form #friendForm="ngForm" novalidate>
+  <form #friendForm="ngForm" novalidate (ngSubmit)="submit()">
     <label for="firstName">First name: </label>
     <input id="firstName" name="firstName" #firstName="ngModel"
            [(ngModel)]="friendModel.firstName" type="text" required

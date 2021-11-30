@@ -107,8 +107,9 @@ A POST request to add a friend to your friend list.
     - Now that the form validation is set up, add the "novalidate" property to your form to prevent the automatic browser validation.
     - To see if your button is actually getting disabled, inspect your button HTML in the browser.
 
-####Notes after day 1: The main difficulty was accessing the ng commands after installing angular. Solution: command ng alias ="\[PATH TO ng.js\]".
-
+###Notes after day 1:
+The main difficulty was accessing the ng commands after installing angular. Solution: command ng alias ="[PATH TO ng.js]".
+***
 - [ ] 14\. Let's submit the data to a server now, but before we can do that we need to be able to do something on submit and get access to http requests.
     - If you add the ngSubmit property to your form, you can bind a function to it and use that function in your component class to trigger it on submit. This is how it looks like: <code>(ngSubmit)="yourFunction()"</code>.
     - In your component class, define the function and console log your friend model. Now when you submit you'll see the data appear in your console.
