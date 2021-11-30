@@ -23,7 +23,7 @@
     <input id="email" name="email" #email="ngModel"
            [(ngModel)]="friendModel.email" type="text" required
            [class.border-danger]="email.invalid && email.touched"
-           pattern="^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$"><br>
+           ><br>
     <!--           source regex for email: https://www.emailregex.com/-->
     <label for="phoneNr">Phone number: </label>
     <input id="phoneNr" name="phoneNr" #phoneNr="ngModel"
@@ -39,5 +39,10 @@
     </select><br>
     <button id="submit" [disabled]="friendForm.form.invalid">Submit</button>
   </form>
+  <ol>
+    <li *ngFor="let friend of allFriends">
+      {{ friend.firstName}} {{friend.lastName}}: email:{{friend.email}}, favorite language: {{friend.favLanguage}}
+    </li>
+  </ol>
 </body>
 </html>

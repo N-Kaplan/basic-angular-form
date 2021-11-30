@@ -15,7 +15,7 @@ app.all("/*", function(req, res, next){
 });
 
 
-let allFriends = [{fName: 'Coach', lName: 'Tim', email: 'tim.broos@becode.org', phone: '0469420666', signatureMove: 'Yeet', language: 'Javascript'}];
+let allFriends = [{firstName: 'Coach', lastName: 'Tim', email: 'tim.broos@becode.org', phoneNr: '0469420666', move: 'Yeet', favLanguage: 'Javascript'}];
 
 // Below you can define how your API handles a get or a post request.
 // Try sending a get request to the root, you should get a "Hello from server" back.
