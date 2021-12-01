@@ -166,6 +166,7 @@ More experimentation with asynchronous functions is necessary.
 
 ### Notes after day 3:
 - Mystery solved: absent console logs were due to browser settings (Firefox).
+- The following RegEx matches any string of at least two characters in either the Latin or Hebrew alphabet: <code>^[a-zA-Zu0590-\u05fe]{2,}$</code>
 
 ## Run to the hills!
 

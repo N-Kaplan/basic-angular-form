@@ -35,8 +35,10 @@ app.get('/allFriends', function (request, response) {
 
 //post function with path "addFriend" pushes the request body to the allFriends array.
 app.post('/addFriend', function (request, response) {
-    allFriends.push(request.body);
-    response.send(allFriends);
+    if (!allFriends.some(friend => friend.email === request.body.email)) {
+        allFriends.push(request.body);
+        response.send(allFriends);
+    }
     //console.log(allFriends);
 });
 

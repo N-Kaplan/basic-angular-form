@@ -15,11 +15,17 @@ export class AppComponent implements OnInit{
   title = 'friend-book';
   allFriendsUrl = 'http://localhost:9000/allFriends';
   languages = [
-    {value: 'css', name: 'CSS'},
-    {value: 'html', name: 'HTML'},
-    {value: 'javascript', name: 'JavaScript'},
-    {value: 'php', name: 'PHP'}
+    {name: 'CSS'},
+    {name: 'HTML'},
+    {name: 'JavaScript'},
+    {name: 'PHP'}
   ];
+
+  errorMessages = ["This field is required",
+    "Please fill in a valid first name",
+    "Please fill in a valid last name.", "Please fill in a valid phone number",
+    "Please fill in a valid email"];
+
   friendModel = new Friend('', '', '', '', '');
   emailDel = new Email('');
 
