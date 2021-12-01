@@ -24,6 +24,10 @@ app.get('/', function (request, response) {
     response.send('Hello from server');
 });
 
+app.post('/', function (request, response) {
+    response.status(200).send({"message": "Data received"});
+});
+
 //new get function to send the allFriends variable as a response
 app.get('/allFriends', function (request, response) {
     response.send(allFriends);
@@ -36,8 +40,15 @@ app.post('/addFriend', function (request, response) {
     //console.log(allFriends);
 });
 
-app.post('/', function (request, response) {
-    response.status(200).send({"message": "Data received"});
+app.get('/deleteFriend', function (request, response) {
+    response.send(allFriends);
+});
+
+app.post('/deleteFriend', function (request, response) {
+    allFriends = allFriends.filter(({email}) => email !== request.body.emailDelete);
+    response.send(allFriends);
+    console.log(request.body.emailDelete);
+    console.log(allFriends);
 });
 
 

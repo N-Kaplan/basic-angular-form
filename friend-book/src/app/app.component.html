@@ -7,29 +7,33 @@
 </head>
 <body>
   {{ friendModel | json }}
+  {{ emailDel | json }}
 <!--todo: add error messages for invalid input (step 12)-->
-  <form #friendForm="ngForm" novalidate (ngSubmit)="submit()">
+  <form #friendForm="ngForm" novalidate (ngSubmit)="submitAdd()">
     <label for="firstName">First name: </label>
-    <input id="firstName" name="firstName" #firstName="ngModel"
-           [(ngModel)]="friendModel.firstName" type="text" required
+    <input #firstName="ngModel" [(ngModel)]="friendModel.firstName"
            [class.border-danger]="firstName.invalid && firstName.touched"
-           pattern="^[a-zA-Z]{2,}$"><br>
+           id="firstName" name="firstName" pattern="^[a-zA-Z]{2,}$"
+           required
+           type="text"><br>
     <label for="lastName">Last name: </label>
-    <input id="lastName" name="lastName" #lastName="ngModel"
-           [(ngModel)]="friendModel.lastName" type="text" required
+    <input #lastName="ngModel" [(ngModel)]="friendModel.lastName"
            [class.border-danger]="lastName.invalid && lastName.touched"
-           pattern="^[a-zA-Z]{2,}$"><br>
+           id="lastName" name="lastName" pattern="^[a-zA-Z]{2,}$"
+           required
+           type="text"><br>
     <label for="email">Email: </label>
-    <input id="email" name="email" #email="ngModel"
-           [(ngModel)]="friendModel.email" type="text" required
+    <input #email="ngModel" [(ngModel)]="friendModel.email"
            [class.border-danger]="email.invalid && email.touched"
-           ><br>
-    <!--           source regex for email: https://www.emailregex.com/-->
+           id="email" name="email" pattern="^[^@]+@[^@]+\.[^@]+$"
+           required
+           type="text"><br>
     <label for="phoneNr">Phone number: </label>
-    <input id="phoneNr" name="phoneNr" #phoneNr="ngModel"
-           [(ngModel)]="friendModel.phoneNr" type="text" required
+    <input #phoneNr="ngModel" [(ngModel)]="friendModel.phoneNr"
            [class.border-danger]="phoneNr.invalid && phoneNr.touched"
-           pattern="^(((\+|00)32[ ]?(?:\(0\)[ ]?)?)|0){1}(4(60|[789]\d)\/?(\s?\d{2}\.?){2}(\s?\d{2})|(\d\/?\s?\d{3}|\d{2}\/?\s?\d{2})(\.?\s?\d{2}){2})$"><br>
+           id="phoneNr" name="phoneNr" pattern="^(((\+|00)32[ ]?(?:\(0\)[ ]?)?)|0){1}(4(60|[789]\d)\/?(\s?\d{2}\.?){2}(\s?\d{2})|(\d\/?\s?\d{3}|\d{2}\/?\s?\d{2})(\.?\s?\d{2}){2})$"
+           required
+           type="text"><br>
     <!--           source regex for belgian phone number: https://regex101.com/r/hN5oL4/1-->
     <label for="favLanguage">Favorite Language: </label>
     <select id="favLanguage" name="favLanguage" #favLanguage="ngModel"
@@ -37,11 +41,19 @@
             [class.border-danger]="favLanguage.invalid && favLanguage.touched">
       <option *ngFor="let language of languages" value="{{language.value}}">{{language.name}}</option>
     </select><br>
-    <button id="submit" [disabled]="friendForm.form.invalid">Submit</button>
-  </form>
+    <button [disabled]="friendForm.form.invalid" id="add" type="submit">Add</button>
+  </form><br>
+  <form #deleteForm="ngForm" (ngSubmit)="submitDelete()" novalidate>
+    <label for="emailDelete">Delete a friend with this email:</label><br>
+    <input #emailDelete="ngModel" [(ngModel)]="emailDel.emailDelete" [class.border-danger]="emailDelete.invalid && emailDelete.touched" id="emailDelete"
+           name="emailDelete" pattern="^[^@]+@[^@]+\.[^@]+$"
+           required
+           type="text">
+    <button [disabled]="deleteForm.form.invalid" id="delete" type="submit">Delete</button>
+  </form><br>
   <ol>
     <li *ngFor="let friend of allFriends">
-      {{ friend.firstName}} {{friend.lastName}}: email:{{friend.email}}, favorite language: {{friend.favLanguage}}
+      {{ friend.firstName}} {{friend.lastName}}:<br> email:{{friend.email}} <br>phone: {{friend.phoneNr}} <br>favorite language: {{friend.favLanguage}}
     </li>
   </ol>
 </body>

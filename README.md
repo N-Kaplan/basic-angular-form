@@ -152,12 +152,20 @@ The main difficulty was accessing the ng commands after installing angular. Solu
     - To do this we'll use the ngFor loop, add the following code to a div: <code>*ngFor="let friend of allFriends"</code>.
     - In this div, if you enter {{ friend.email }} for example. You'll see that on your page you'll see all the emails of your friends displayed.
     - Now display all details of your friends, try adding new friends in the process. It updates instantly!
+
+### Notes after day 2: 
+Understanding the separation between client and server gives a better oversight of the project.
+More experimentation with asynchronous functions is necessary.
+***
 - [ ] 19\. You now have all the must-have features. Congratulations! If you have time left, be sure to take a look at the nice-to-have features. Here are some suggestions as well:
     - Try removing people from your friend list based on email. Post the email of a friend, find the friend on the server and pop it out of the array.
     - Try updating the data from a friend based on email. Same thing, post the email and find that friend, update the values.
     - Make seperate pages by generating new components! You'll have to look into routing as well!
     - Get creative!
 - [ ] 20\. Congratulations, you survived the first steps of Angular and Node. I'm proud of you!
+
+### Notes after day 3:
+- Mystery solved: absent console logs were due to browser settings (Firefox).
 
 ## Run to the hills!
 
