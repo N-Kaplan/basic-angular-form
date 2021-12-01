@@ -23,7 +23,8 @@ export class AppComponent implements OnInit{
   friendModel = new Friend('', '', '', '', '');
   emailDel = new Email('');
 
-  allFriends =  [{firstName: 'Coach', lastName: 'Tim', email: 'tim.broos@becode.org', phoneNr: '0469420666', move: 'Yeet', favLanguage: 'Javascript'}];
+  //allFriends =  [{firstName: 'Coach', lastName: 'Tim', email: 'tim.broos@becode.org', phoneNr: '0469420666', move: 'Yeet', favLanguage: 'Javascript'}];
+  allFriends: any;
 
   constructor(private addFriendService: AddFriendService, private deleteFriendService: DeleteFriendService) {};
 
@@ -35,12 +36,11 @@ export class AppComponent implements OnInit{
       this.displayFriends(this.allFriendsUrl).then((friendsList) => {
         this.allFriends = friendsList;
       });
-
     }, error => "it didn't work"); //addFriend returns "observable". in order to get this data: subscribe to it
   }
 
   public submitDelete() {
-    console.log(this.emailDel);
+    //console.log(this.emailDel);
     this.deleteFriendService.deleteFriend(this.emailDel).subscribe(data => {
       this.displayFriends(this.allFriendsUrl).then((friendsList) => {
         this.allFriends = friendsList;

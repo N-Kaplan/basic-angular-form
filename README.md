@@ -158,7 +158,7 @@ Understanding the separation between client and server gives a better oversight 
 More experimentation with asynchronous functions is necessary.
 ***
 - [ ] 19\. You now have all the must-have features. Congratulations! If you have time left, be sure to take a look at the nice-to-have features. Here are some suggestions as well:
-    - Try removing people from your friend list based on email. Post the email of a friend, find the friend on the server and pop it out of the array.
+    - [x] Try removing people from your friend list based on email. Post the email of a friend, find the friend on the server and pop it out of the array.
     - Try updating the data from a friend based on email. Same thing, post the email and find that friend, update the values.
     - Make seperate pages by generating new components! You'll have to look into routing as well!
     - Get creative!

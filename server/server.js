@@ -40,10 +40,6 @@ app.post('/addFriend', function (request, response) {
     //console.log(allFriends);
 });
 
-app.get('/deleteFriend', function (request, response) {
-    response.send(allFriends);
-});
-
 app.post('/deleteFriend', function (request, response) {
     allFriends = allFriends.filter(({email}) => email !== request.body.emailDelete);
     response.send(allFriends);

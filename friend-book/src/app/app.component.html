@@ -45,7 +45,8 @@
   </form><br>
   <form #deleteForm="ngForm" (ngSubmit)="submitDelete()" novalidate>
     <label for="emailDelete">Delete a friend with this email:</label><br>
-    <input #emailDelete="ngModel" [(ngModel)]="emailDel.emailDelete" [class.border-danger]="emailDelete.invalid && emailDelete.touched" id="emailDelete"
+    <input #emailDelete="ngModel" [(ngModel)]="emailDel.emailDelete"
+           [class.border-danger]="emailDelete.invalid && emailDelete.touched" id="emailDelete"
            name="emailDelete" pattern="^[^@]+@[^@]+\.[^@]+$"
            required
            type="text">
