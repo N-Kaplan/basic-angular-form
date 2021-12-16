@@ -109,7 +109,7 @@ A POST request to add a friend to your friend list.
 
 ### Notes after day 1:
 
-The main difficulty was accessing the ng commands after installing angular. Solution: command ng alias ="[PATH TO ng.js]".
+The main difficulty was accessing the ng commands after installing angular. Solution: command alias ng ="[PATH TO ng.js]".
 ***
 - [x] 14\. Let's submit the data to a server now, but before we can do that we need to be able to do something on submit and get access to http requests.
     - If you add the ngSubmit property to your form, you can bind a function to it and use that function in your component class to trigger it on submit. This is how it looks like: <code>(ngSubmit)="yourFunction()"</code>.
